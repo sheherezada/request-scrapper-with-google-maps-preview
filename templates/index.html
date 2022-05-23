@@ -1,0 +1,1086 @@
+{% load static %}
+<!DOCTYPE html>
+
+<!-- beautify ignore:start -->
+<html
+    lang="en"
+    class="light-style layout-menu-fixed"
+    dir="ltr"
+    data-theme="theme-default"
+    data-assets-path="../assets/"
+    data-template="vertical-menu-template-free">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+
+        <title>Dashboard - AirStayDNA</title>
+
+        <meta name="description" content="" />
+
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="{% static 'assets/img/favicon/favicon.ico' %}"/>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <!--<link
+            href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"/-->
+
+        <!-- Icons. Uncomment required icon fonts -->
+        <link
+            rel="stylesheet"
+            href="{% static 'assets/vendor/fonts/boxicons.css' %}"/>
+
+        <!-- Core CSS -->
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <link rel="stylesheet" href="{% static 'style_2.css' %}" />
+        <link rel="stylesheet" href="{% static 'reset.css' %}" />
+        <link href="{% static 'home.css' %}" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="{% static 'assets/vendor/css/core.css' %}"
+            class="template-customizer-core-css"/>
+        <link
+            rel="stylesheet"
+            href="{% static 'assets/vendor/css/theme-default.css' %}"
+            class="template-customizer-theme-css"/>
+        <link rel="stylesheet" href="{% static 'assets/css/demo.css' %}" />
+
+        <!-- Vendors CSS -->
+        <link
+            rel="stylesheet"
+            href="{% static 'assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css' %}"/>
+
+        <link
+            rel="stylesheet"
+            href="{% static 'assets/vendor/libs/apex-charts/apex-charts.css' %}"/>
+
+        <!-- Page CSS -->
+
+        <!-- Helpers -->
+        <script src="{% static 'assets/vendor/js/helpers.js' %}"></script>
+
+        <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+        <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+        <script src="{% static 'assets/js/config.js' %}"></script>
+
+        <!-- Font Awesome Kit Code
+        <script
+            src="https://kit.fontawesome.com/493a13f49a.js"
+            crossorigin="anonymous"></script> -->
+        <style>
+            #lock-container {
+                /* background: antiquewhite; */
+                padding: 20px 14px;
+                /* align-items: center; */
+                display: flex;
+                justify-content: end;
+            }
+            .overall {
+                background: antiquewhite;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 4px;
+            }
+            #overall-card {
+                padding: 10px 10px 0px 0px;
+            }
+            .outer-card-title {
+                margin: 20px 0 0 20px;
+            }
+            .avatar .title {
+                width: 100%;
+            }
+            .card-body .overall-stats {
+                padding: 1rem 1rem;
+            }
+            .info-window{
+                text-size-adjust: 100%;
+                word-break: normal;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                -webkit-print-color-adjust: exact;
+                -webkit-font-smoothing: antialiased;
+                color: rgb(74, 74, 74);
+                font: 400 11px Roboto, Arial, sans-serif;
+                cursor: default;
+                font-weight: 300;
+                font-size: 13px;
+                box-sizing: border-box;
+                background: #fff;
+                width: 100%;
+                position: relative;
+                font-family: "Open Sans",sans-serif;
+                border-bottom: 4px solid #3f51b5;
+                max-width: 319px;
+                min-width: 315px;
+            }.info-window__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 12px;
+    text-transform: capitalize;
+    color: #4a4a4a;
+    font-weight: 600;
+    padding: 10px;
+} 
+.info-window__image {
+    background: #f2f4fc;
+    height: 0;
+    padding-bottom: 39.4984326019%;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+.info-window__description {
+    font-weight: 600;
+    font-size: 12px;
+}
+.info-window__row--space-between {
+    justify-content: space-between;
+}
+.info-window__row--flex {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+.info-window__property-link {
+    max-width: 214px;
+    width: 214px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+        </style>
+    </head>
+
+    <body>
+        <!-- Layout wrapper -->
+        <div class="layout-wrapper layout-content-navbar">
+            <div class="layout-container">
+                <!-- Menu -->
+
+                <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                    <div class="app-brand demo">
+                        <a href="#" class="app-brand-link">
+                            <span class="app-brand-logo demo">
+                            </span>
+                            <span class="app-brand-text demo menu-text fw-bolder ms-2">Logo</span>
+                        </a>
+
+                        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+                        </a>
+                    </div>
+
+                    <div class="menu-inner-shadow"></div>
+
+                    <ul class="menu-inner py-1">
+                        <!-- Layouts --><!-- Components -->
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">My Properties</span>
+                        </li>
+
+                        <li class="menu-item active">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                <i class="menu-icon tf-icons bx bx-layout"></i>
+                                <div data-i18n="Layouts">Research</div>
+                            </a>
+
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="layouts-without-menu.html" class="menu-link">
+                                        <div data-i18n="Without menu">
+                                            Overview
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="layouts-without-navbar.html" class="menu-link">
+                                        <div data-i18n="Without navbar">
+                                            Occupancy
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="layouts-container.html" class="menu-link">
+                                        <div data-i18n="Container">Rates</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="layouts-fluid.html" class="menu-link">
+                                        <div data-i18n="Fluid">Revenue</div>
+                                    </a>
+                                </li>
+                  <a href="layouts-blank.html" class="menu-link">
+                    <div data-i18n="Blank">Blank</div>
+                  </a>
+                </li>-->
+                            </ul>
+                        </li>
+
+                        <li class="menu-item">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                                <div data-i18n="Account Settings">Price</div>
+                            </a>
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="pages-account-settings-account.html" class="menu-link">
+                                        <div data-i18n="Account">
+                                            Smart Rates
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="pages-account-settings-notifications.html" class="menu-link">
+                                        <div data-i18n="Notifications">
+                                            Pacing
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="pages-account-settings-connections.html" class="menu-link">
+                                        <div data-i18n="Connections">
+                                            Seasonality
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                                <div data-i18n="Authentications">Invest</div>
+                            </a>
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="auth-login-basic.html" class="menu-link" target="_blank">
+                                        <div data-i18n="Basic">Rentalizer</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="auth-register-basic.html" class="menu-link" target="_blank">
+                                        <div data-i18n="Basic">
+                                            Top Properties
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
+                                        <div data-i18n="Basic">
+                                            Market Comparison
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item bottom">
+                            <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-support"></i>
+                                <div data-i18n="Support">Pricing</div>
+                            </a>
+                        </li>
+                        <li class="menu-item bottom">
+                            <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-file"></i>
+                                <div data-i18n="Documentation">Resources</div>
+                            </a>
+                        </li>
+                        <li class="menu-item bottom">
+                            <a href="" target="_blank" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-at"></i>
+                                <div data-i18n="Documentation">Contact</div>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+                <!-- / Menu -->
+
+                <!-- Layout container -->
+                <div class="layout-page">
+                    <!-- Navbar -->
+
+                    <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+                        <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                            <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                                <i class="bx bx-menu bx-sm"></i>
+                            </a>
+                        </div>
+
+                        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                                <form  method="GET">
+                                    <div class="home-container03 header-fields">
+                                        <div class="input-group input-group-merge">
+
+                                            <input id = "city" name ="query_1" value="{{ request.GET.query_1 }}" type="text" class="form-control" id="basic-icon-default-fullname" placeholder="City" aria-label="City" aria-describedby="basic-icon-default-fullname2"/>
+                                            <span
+                                                style="     border: 1px solid #d9dee3;
+                                                    height: 100%;
+                                                    width: 4px;
+                                                    align-self: center;
+                                                    background: linear-gradient(
+                                                            180deg,
+                                                            rgb(255, 255, 255) 15%,
+                                                            rgba(0, 0, 0, 0) 15%
+                                                        ),
+                                                        linear-gradient(
+                                                            180deg,
+                                                            rgb(204, 204, 204) 85%,
+                                                            #fff 85%
+                                                        );
+                                                "></span>
+                                            <span
+                                                id="basic-icon-default-fullname2" class="input-group-text">
+                                                <i class="fa-solid fa-magnifying-glass"></i></span>
+                                        </div>
+                                        <div class="input-group input-group-merge">
+                                             <input
+                                                type="text" name="query_2"  value="{{ request.GET.query_2 }}" class="form-control" id="basic-icon-default-fullname" placeholder="Neighborhoods / Zip Codes" aria-label="Neighborhoods / Zip Codes" aria-describedby="basic-icon-default-fullname2"
+                                            />
+                                            <span
+                                                style="     border: 1px solid #d9dee3;
+                                                height: 100%;
+                                                width: 4px;
+                                                align-self: center;
+                                                background: linear-gradient(
+                                                        180deg,
+                                                        rgb(255, 255, 255) 15%,
+                                                        rgba(0, 0, 0, 0) 15%
+                                                    ),
+                                                    linear-gradient(
+                                                        180deg,
+                                                        rgb(204, 204, 204) 85%,
+                                                        #fff 85%
+                                                    );
+                                            "></span>
+                                            <span
+                                                id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                        </div>
+                                        <button class="home-button button">Search</button>
+                                    </div>
+                                </form>
+                            <div class="home-container04">
+                                <div class="home-container05">
+                                    <button
+                                        cursor="pointer"
+                                        class="home-button1 button">
+                                        View Unlocked Market
+                                    </button>
+                                </div>
+                                <div class="home-container06">
+                                    <span class="home-text"><span>Ksh</span></span>
+                                </div>
+                                <div class="home-container07">
+                                    <svg viewBox="0 0 1024 1024" class="home-icon">
+                                        <path
+                                            d="M521.143 969.143c0-5.143-4-9.143-9.143-9.143-45.143 0-82.286-37.143-82.286-82.286 0-5.143-4-9.143-9.143-9.143s-9.143 4-9.143 9.143c0 55.429 45.143 100.571 100.571 100.571 5.143 0 9.143-4 9.143-9.143zM987.429 804.571c0 40-33.143 73.143-73.143 73.143h-256c0 80.571-65.714 146.286-146.286 146.286s-146.286-65.714-146.286-146.286h-256c-40 0-73.143-33.143-73.143-73.143 84.571-71.429 182.857-199.429 182.857-475.429 0-109.714 90.857-229.714 242.286-252-2.857-6.857-4.571-14.286-4.571-22.286 0-30.286 24.571-54.857 54.857-54.857s54.857 24.571 54.857 54.857c0 8-1.714 15.429-4.571 22.286 151.429 22.286 242.286 142.286 242.286 252 0 276 98.286 404 182.857 475.429z"></path>
+                                    </svg>
+                                </div>
+                                <div class="home-container08">
+                                    <svg viewBox="0 0 1024 1024" class="home-icon2">
+                                        <path
+                                            d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                        </div>
+                    </nav>
+
+                    <!-- / Navbar -->
+
+                    <!-- Content wrapper -->
+                    <div class="content-wrapper">
+                        <!-- Content -->
+                        <div class="home-container09">
+                            <div class="home-main-overview">
+                                <div
+                                    class="col-md overall-card"
+                                    style="width: 100%">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <h5 class="outer-card-title">
+                                                Market Grade
+                                            </h5>
+                                            <div
+                                                class="col-md-4" id="lock-container">
+                                                <div class="overall">
+                                                    <p>Overall</p>
+                                                    <i class="fa-solid fa-lock" style="font-size: 40px" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title="<i class='bx bx-bell bx-xs'></i> <span>Subscribe to view market grade</span>"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8" style="display: none">
+                                                <div class="card-body" id="overall-card">
+                                                    <div class="demo-vertical-spacing">
+                                                        <div class="overall-stats">
+                                                            <i class="bx bx-info-circle"></i>
+                                                            <div class="progress" style="height: 7px;">
+                                                                <div
+                                                                    class="progress-bar" role="progressbar" style="     width: 25%;
+                                                                    " aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="overall-stats">
+                                                            <i
+                                                                class="bx bx-info-circle"></i>
+                                                            <div
+                                                                class="progress"
+                                                                style=" height: 7px;
+                                                                ">
+                                                                <div
+                                                                    class="progress-bar" role="progressbar" style="     width: 28%;
+                                                                    " aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="overall-stats">
+                                                            <i
+                                                                class="bx bx-info-circle"></i>
+                                                            <div
+                                                                class="progress"
+                                                                style="
+                                                                    height: 7px;
+                                                                ">
+                                                                <div
+                                                                    class="progress-bar"
+                                                                    role="progressbar"
+                                                                    style="
+                                                                        width: 2%;
+                                                                    "
+                                                                    aria-valuenow="2"
+                                                                    aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="overall-stats">
+                                                            <i
+                                                                class="bx bx-info-circle"></i>
+                                                            <div
+                                                                class="progress"
+                                                                style="
+                                                                    height: 7px;
+                                                                ">
+                                                                <div
+                                                                    class="progress-bar"
+                                                                    role="progressbar"
+                                                                    style="
+                                                                        width: 37%;
+                                                                    "
+                                                                    aria-valuenow="37"
+                                                                    aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="home-triple">
+                                <div class="home-container10">
+                                    <div class="col-12 mb-4">
+                                        <div class="card">
+                                            <div
+                                                class="card-body overall-stats">
+                                                <div
+                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                    <div
+                                                        class="avatar"
+                                                        style="width: 100%">
+                                                        <p>
+                                                            Average Daily Rate
+                                                        </p>
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <button
+                                                            class="btn p-0"
+                                                            type="button"
+                                                            id="cardOpt1">
+                                                            <i
+                                                                class="bx bx-info-circle"
+                                                                data-bs-toggle="tooltip"
+                                                                data-bs-offset="0,4"
+                                                                data-bs-placement="top"
+                                                                data-bs-html="true"
+                                                                title="<i class='bx bx-bell bx-xs'></i> <span>Subscribe to view market grade</span>"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="row"
+                                                    style="
+                                                        display: flex;
+                                                        margin-bottom: 5px;
+                                                    ">
+                                                    <span
+                                                        class="fw-semibold col-lg-5 d-block mb-1"
+                                                        style="
+                                                            align-self: center;
+                                                        ">$201</span>
+                                                    <!--<h3 class="card-title mb-2">$14,857</h3>-->
+                                                    <div
+                                                        id="ratesChart"
+                                                        class="col-lg-7"></div>
+                                                </div>
+                                                <small
+                                                    class="card-links fw-semibold">View Rates &rarr;</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="home-container11">
+                                    <div class="col-12 mb-4">
+                                        <div class="card">
+                                            <div
+                                                class="card-body overall-stats">
+                                                <div
+                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                    <div
+                                                        class="avatar"
+                                                        style="width: 100%">
+                                                        <p>
+                                                            Average Daily Rate
+                                                        </p>
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <button
+                                                            class="btn p-0"
+                                                            type="button"
+                                                            id="cardOpt1">
+                                                            <i
+                                                                class="bx bx-info-circle"
+                                                                data-bs-toggle="tooltip"
+                                                                data-bs-offset="0,4"
+                                                                data-bs-placement="top"
+                                                                data-bs-html="true"
+                                                                title="<i class='bx bx-bell bx-xs'></i> <span>Subscribe to view market grade</span>"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="row"
+                                                    style="
+                                                        display: flex;
+                                                        margin-bottom: 5px;
+                                                    ">
+                                                    <span
+                                                        class="fw-semibold col-lg-5 d-block mb-1"
+                                                        style="
+                                                            align-self: center;
+                                                        ">30%</span>
+                                                    <div
+                                                        id="occupancyChart"
+                                                        class="col-lg-7"></div>
+                                                </div>
+                                                <small
+                                                    class="card-links fw-semibold">View Occupancy
+                                                    &rarr;</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="home-container12">
+                                    <div class="col-12 mb-4">
+                                        <div class="card">
+                                            <div
+                                                class="card-body overall-stats">
+                                                <div
+                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                    <div
+                                                        class="avatar"
+                                                        style="width: 100%">
+                                                        <p>Revenue</p>
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <button
+                                                            class="btn p-0"
+                                                            type="button"
+                                                            id="cardOpt1">
+                                                            <i
+                                                                class="bx bx-info-circle"
+                                                                data-bs-toggle="tooltip"
+                                                                data-bs-offset="0,4"
+                                                                data-bs-placement="top"
+                                                                data-bs-html="true"
+                                                                title="<i class='bx bx-bell bx-xs'></i> <span>Subscribe to view market grade</span>"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="row"
+                                                    style="
+                                                        display: flex;
+                                                        margin-bottom: 5px;
+                                                    ">
+                                                    <span
+                                                        class="fw-semibold col-lg-5 d-block mb-1"
+                                                        style="
+                                                            align-self: center;
+                                                        ">$3,588</span>
+                                                    <div
+                                                        id="revenueChart"
+                                                        class="col-lg-7"></div>
+                                                </div>
+                                                <small
+                                                    class="card-links fw-semibold">View Revenue &rarr;</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="home-container13">
+                                <div class="home-container14">
+                                    <!-- Active Rentals Chart -->
+                                    <div class="home-main-overview1">
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="card-title m-0 me-2">  Active Rentals</h5>
+                                            <div class="dropdown">
+                                                <button
+                                                class="btn p-0"
+                                                type="button"
+                                                id="transactionID"
+                                                >
+                                                <i 
+                                                class="bx bx-info-circle"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-offset="0,4"
+                                                data-bs-placement="top"
+                                                data-bs-html="true"
+                                                title=" <span>Active Rentals are those that had at least one reserved or available day in the last month</span>"></i>
+                                                </button>
+                                            </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row" style="display: flex;">
+                                                    <h5 class="text-nowrap mb-2">
+                                                        <span>Rental Type</span>
+
+                                                        <span> % Entire Homes</span>
+
+                                                    </h5>
+                                                </div>
+                                                
+                                            <ul class="p-0 m-0">
+                                                <li class="d-flex mb-4 pb-1">
+                                                    <div id="rentalsChart" class="px-2"></div>
+                                                </li>
+                                            </ul>
+                                            </div>
+                                        </div>https://www.airbnb.com/s/hawaii/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&date_picker_type=calendar&source=structured_search_input_header&search_type=filter_changesvg
+                                    </div>
+                                    
+                                    <!-- Rental Channels Chart -->
+                                    <div class="home-main-overview2">
+
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="card-title m-0 me-2">Rental Channel</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="p-0 m-0">
+                                                    <li class="d-flex mb-4 pb-1">
+                                                        <div id=""></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+
+
+                            <div class="col-md-12 col-lg-12 mb-3 map-card">
+                                <div class="card h-100">
+                                    <img class="card-img-top" src="" alt="Card image cap" style="width: 100%; height: 200px;"/>
+                                    <div class="card-body">
+                                        <div class="" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 10px;">
+                                            <div class="details"><i class='bx bxs-bed'></i><span>5</span></div><div class="details"><i class='bx bxs-bath' ></i><span>6</span></div><div class="details"><i class='bx bxs-user'></i><span>5</span></div><div class="details"><i class='bx bxs-star' ></i><span>3.5(54)</span></div>
+                                        </div>
+                                        <div><a href="https://www.airbnb.com/rooms/' + item.pk + '"><h5 class="card-title" style="font-size:16px;">' + itemFields.name + '</h5></a></div>
+                                        <p class="card-text">
+                                            Title
+                                        </p>
+                                        <div class="" style="width: 100%; display: flex; flex-direction: row; justify-content: center; margin-bottom: 10px;">
+                                        <a href="" class="btn btn-outline-primary">Last 12 Months</a>
+                                        </div>
+                                        <div class="" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 10px;">
+                                        <div class="details" style="justify-content:center;"><span>5</span><br><p>Days Available</p></div>21<div class="details"><span>$54</span><br><p>Avg. Daily Rate</p></div><div class="details"><i class='bx bxs-lock'></i></span><br><p>Occupancy</p></div><div class="details"><i class='bx bxs-lock' ></i><br><p>Revenue</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                    <!-- Rental Sizes Chart -->
+                                    <div class="home-main-overview3">
+
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="card-title m-0 me-2">Rental Sizes</h5>
+                                            <div class="dropdown">
+                                                <button
+                                                class="btn p-0"
+                                                type="button"
+                                                id="transactionID"
+                                                >
+                                                <i class="bx bx-info-circle"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-offset="0,4"
+                                                data-bs-placement="top"
+                                                data-bs-html="true"
+                                                title=" <span>Active Rentals are those that had at least one reserved or available day in the last month</span>"></i>
+                                                </button>
+                                            </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="p-0 m-0">
+                                                    <li class="d-flex mb-4 pb-1">
+                                                        <div id="rentalSizeChart" class="px-2"></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Rental Growth Chart -->
+                                    <div class="home-main-overview3">
+
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="card-title m-0 me-2">Rental Growth</h5>
+                                            <div class="dropdown">
+                                                <button class="btn p-0" type="button" id="transactionID">
+                                                <i class="bx bx-info-circle" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title=" <span>Active Rentals are those that had at least one reserved or available day in the last month</span>"></i>
+                                                </button>
+                                            </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="p-0 m-0">
+                                                    <li class="d-flex mb-4 pb-1">
+                                                        <div id="rentalGrowthChart"></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Top Property Managers Chart -->
+                                    <div class="home-main-overview3">
+
+
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="card-title m-0 me-2">Top Property Managers</h5>
+                                            <div class="dropdown">
+                                                <button class="btn p-0" type="button" id="transactionID">
+                                                <i class="bx bx-info-circle" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title=" <span>Active Rentals are those that had at least one reserved or available day in the last month</span>"></i>
+                                                </button>
+                                            </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="p-0 m-0">
+                                                    <li class="d-flex mb-4 pb-1">
+                                                        <div id="rentalGrowthChart"></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <!-- Amenities Chart -->
+                                    <div class="home-main-overview3">
+
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="card-title m-0 me-2">Amenities</h5>
+                                            <div class="dropdown">
+                                                <button class="btn p-0" type="button" id="transactionID">
+                                                <i class="bx bx-info-circle" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title=" <span>Active Rentals are those that had at least one reserved or available day in the last month</span>"></i>
+                                                </button>
+                                            </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="p-0 m-0">
+                                                    <li class="d-flex mb-4 pb-1">
+                                                        <div id="amenitiesChart"></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- AirBNB Ratings Chart -->
+                                    <div class="home-main-overview3">
+
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="card-title m-0 me-2">AirBnb Ratings</h5>
+                                            <div class="dropdown">
+                                                <button class="btn p-0" type="button" id="transactionID">
+                                                <i class="bx bx-info-circle" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title=" <span>Active Rentals are those that had at least one reserved or available day in the last month</span>"></i>
+                                                </button>
+                                            </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="p-0 m-0">
+                                                    <li class="d-flex mb-4 pb-1">
+                                                        <div id="expenses"></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Rental Activity Chart -->
+                                    <div class="home-main-overview3">
+
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="card-title m-0 me-2">Rental Activity</h5>
+                                            <div class="dropdown">
+                                                <button class="btn p-0" type="button" id="transactionID">
+                                                <i class="bx bx-info-circle" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title=" <span>Active Rentals are those that had at least one reserved or available day in the last month</span>"></i>
+                                                </button>
+                                            </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="p-0 m-0">
+                                                    <li class="d-flex mb-4 pb-1" style="justify-content: center;">
+                                                        <div id="rentalActivityChart"></div>
+                                                        <div id="rentalActivityChart2"></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Rental Settings Chart -->
+                                    <div class="home-main-overview3">
+
+
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="card-title m-0 me-2">Rental Setting</h5>
+                                            <div class="dropdown">
+                                                <button class="btn p-0" type="button" id="transactionID">
+                                                <i class="bx bx-info-circle" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title=" <span>Active Rentals are those that had at least one reserved or available day in the last month</span>"></i>
+                                                </button>
+                                            </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="p-0 m-0">
+                                                    <li class="d-flex mb-4 pb-1">
+                                                        <div id="rentalSettingsChart"></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="home-container15">
+                                    <div id="map_container" class="home-maps"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- / Content -->
+
+                        <div class="content-backdrop fade"></div>
+                    </div>
+                    <!-- Content wrapper -->
+                </div>
+                <!-- / Layout page -->
+            </div>
+
+            <!-- Overlay -->
+            <div class="layout-overlay layout-menu-toggle"></div>
+        </div>
+        <!-- / Layout wrapper -->
+
+        <!-- Google Maps Setup -->
+        <script>
+
+            
+            var data_received = '{{ rooms|escapejs }}';
+
+            // The following example creates five accessible and focusable markers.
+            function initMap() {
+                
+                // Receiver Function
+                function mapAddressMapper(data_got) {
+                    var myStyles =[
+                        {
+                            featureType: "poi",
+                            elementType: "labels",
+                            stylers: [
+                                { visibility: "off" }
+                            ]
+                        }
+                    ];
+                    var data = JSON.parse(data_got)
+                    var map_center_lat = parseFloat(data[0].fields.lat)
+                    var map_center_lng = parseFloat(data[0].fields.lng)
+                    const map = new google.maps.Map(
+                        document.getElementById("map_container"),
+                        {
+                            zoom: 12,
+                            center: { lat: map_center_lat, lng: map_center_lng },
+                            styles: myStyles,
+                        }
+                    );
+                    // Set LatLng and title text for the markers. The first marker (Boynton Pass)
+                    // receives the initial focus when tab is pressed. Use arrow keys to
+                    // move between markers; press tab again to cycle through the map controls.
+                    const airCribs = data
+
+                    // Create an info window to share between markers.
+                    const infoWindow = new google.maps.InfoWindow();
+
+                    for(var i = 0; i < data.length; i++)
+                    {
+                        var item = data[i];
+                        var itemFields = item.fields
+                        var coords = { lat: parseFloat(itemFields.lat), lng: parseFloat(itemFields.lng) };
+
+                        if (itemFields.house_type == 'entire_home') {
+                            var icon = "https://gee.pythonanywhere.com/static/entire.png"
+                        } else if (itemFields.house_type == 'private_room') {
+                            var icon = "https://gee.pythonanywhere.com/static/private.png"
+                        } else if (itemFields.house_type == 'shared_room') {
+                            var icon = "https://gee.pythonanywhere.com/static/shared.png"
+                        }
+
+                        var rooms = itemFields.room_type
+
+                        if (rooms == 'Studio'){
+                            var rooms = rooms
+                        }
+                        else{
+                            var rooms = rooms.match(/(\d+)/);
+                            var rooms = rooms[0]
+                        }
+
+                        console.log('Rooms:')
+                        console.log(rooms)
+
+                        var beds = itemFields.beds
+                        var baths = itemFields.baths
+                        var guests = itemFields.guests
+                        var rating = parseFloat(itemFields.average_rating)
+                        var rating_count = parseInt(itemFields.reviews_count)
+
+                        const marker = new google.maps.Marker({
+                            position: coords,
+                            map,
+                            icon,
+                            optimized: false,
+                            shouldFocus: false,
+                        });
+
+                        const contentString =
+                            '<div class="col-md-12 col-lg-12 mb-3 map-card">' +
+                                `<div class="card h-100" style="overflow-y: hidden;">` +
+                                    `<img class="card-img-top" src="` + itemFields.picture + `" alt="Card image cap" style="width: 100%; height: 200px;"/>` +
+                                    '<div class="card-body" style="overflow-y: hidden;">' +
+                                        '<div class="" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 10px;">' +
+                                            `<div class="details"><i class='bx bxs-bed'></i><span>` + rooms + `</span></div>` + `<div class="details"><i class='bx bxs-bath' ></i><span>` + baths + `</span></div>` + `<div class="details"><i class='bx bxs-user'></i><span>` + guests + `</span></div>` + `<div class="details"><i class='bx bxs-star' ></i><span>` + rating + `(` + rating_count + `)` + `</span></div>` +
+                                        '</div>' +
+                                        '<div style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">' +
+                                            `<div style="width: 75%">` + '<a href="https://www.airbnb.com/rooms/' + item.pk + '"><h5 class="card-title" style="font-size:16px;">' + itemFields.name + '</h5></a>' + `</div>` +
+                                            `<div class="images" style="">` + `<img src="` + `https://gee.pythonanywhere.com/static/AirBnB.png` + `">` + `<img src="` + `https://gee.pythonanywhere.com/static/VRBO.png` + `">` + `</div>` +
+                                        '</div>' +
+                                        `<div>` +
+                                            '<p class="card-text">' + 
+                                                itemFields.title + 
+                                            '</p>' +
+                                        `</div>` +
+                                        '<div class="" style="width: 100%; display: flex; flex-direction: row; justify-content: center; margin-bottom: 10px;">' +
+                                        '<a href="" class="btn btn-outline-primary">Last 12 Months</a>' +
+                                        '</div>' +
+                                        '<div class="" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 10px;">' +
+                                        `<div class="details" style="display: flex; flex-direction: column; align-items: center;"><span>4</span><p>Days Available</p></div>` + `<div class="details" style="display: flex; flex-direction: column; align-items: center;"><span>$54</span><p>Avg. Daily Rate</p></div>` + `<div class="details" style="display: flex; flex-direction: column; align-items: center;"><i class='bx bxs-lock'></i><p>Occupancy</p></div>` + `<div class="details" style="display: flex; flex-direction: column; align-items: center;"><i class='bx bxs-lock' ></i><p>Revenue</p></div>` +
+                                        '</div>'
+                                    '</div>' +
+                                '</div>' +
+                            '</div>';
+
+                        // Add a click listener for each marker, and set up the info window.
+                        marker.addListener("mouseover", () => {
+                            infoWindow.close();
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(marker.getMap(), marker);
+                            infoWindow.addListener("mouseleave", () => {
+                                console.log('Over')
+                            infoWindow.close();
+                                });
+                        });
+                    // Add a mouse out listener for each marker, and set up the info window.
+                map.addListener("mouseover", () => {
+                    console.log('Over')
+                    infoWindow.close();
+                });
+                }
+
+                    }
+                // End Of Receiver Function
+
+                
+
+                mapAddressMapper(data_received);
+
+            }
+
+            window.initMap = initMap;
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiduHTaCymCfbOBb_CaT5lWbuHaaLu5BQ&callback=initMap"></script>
+        <!-- Core JS -->
+        <!-- build:js assets/vendor/js/core.js -->
+        <script src="{% static 'assets/vendor/libs/jquery/jquery.js' %}"></script>
+        <script src="{% static 'assets/vendor/libs/popper/popper.js' %}"></script>
+        <script src="{% static 'assets/vendor/js/bootstrap.js' %}"></script>
+        <script src="{% static 'assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+
+        <script src="{% static 'assets/vendor/js/menu.js' %}"></script>
+        <!-- endbuild -->
+
+        <!-- Vendors JS -->
+        <script src="{% static 'assets/vendor/libs/apex-charts/apexcharts.js' %}"></script>
+
+        <!-- Main JS -->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+
+        <!-- Page JS -->
+        <script src="{% static 'assets/js/dashboards-analytics.js' %}"></script>
+        
+        <script>
+
+            var data = '{{ rooms|escapejs }}';
+            data_pass(data)
+
+        </script>
+
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <!--<script async defer src="https://buttons.github.io/buttons.js"></script>-->
+    </body>
+</html>
